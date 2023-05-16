@@ -28,6 +28,7 @@ public class Parser {
         Elements tbody = tbodyAll.select("tr[class=weather-table__row]");
 
 //        System.out.println(date + "    Явления     Двление     Влажность      Ветер    Ощущается");
+        System.out.println("Погода в Мелеузе\n");
         System.out.format("%20s%32s%20s%20s%20s%20s", date, "Явления", "Двление", "Влажность", "Ветер", "Ощущается");
         System.out.println("");
 
@@ -39,7 +40,7 @@ public class Parser {
             String presure = value.select("td[class=weather-table__body-cell weather-table__body-cell_type_air-pressure]").text();
             String humidity = value.select("td[class=weather-table__body-cell weather-table__body-cell_type_humidity]").text();
             Element wraperAll = value.select("td[class=weather-table__body-cell weather-table__body-cell_type_wind weather-table__body-cell_wrapper]").first();
-            String wraperSpeed = wraperAll.select("span[wind-speed]").text();
+            String wraperSpeed = wraperAll.select("span[class=wind-speed]").text();
             String wraperDer = wraperAll.select("div[class=weather-table__wind-direction]").text();
             String wraper = wraperSpeed + " " + wraperDer;
             Element likeAll = value.select("td[class=weather-table__body-cell weather-table__body-cell_type_feels-like]").first();
